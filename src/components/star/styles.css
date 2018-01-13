@@ -1,25 +1,19 @@
 .star {
-  /* height: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: center; */
   padding-left: 5px;
   padding-right: 5px;
 }
 
-.star-icon-container {
-  
-}
-
 .star-icon-container img {
   cursor: pointer;
-  width: 35px;
-  height: 35px;
+  width: 100%;
+  height: 100%;
+  min-width: 20px;
+  min-height: 20px;
 }
 
 .star-weight {
   text-align: center;
   color: #c4c4d2;
-  font-size: 15px;
+  font-size: 11px;
   margin-top: 5px;
 }
