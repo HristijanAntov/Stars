@@ -1,7 +1,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
-import { ping, fetchFeedbackRating, fetchClosedPreference, submitFeedbackRating, submitClosedPreference } from '../../modules/stars/actions'
+import { fetchFeedbackRating, fetchClosedPreference, submitFeedbackRating, submitClosedPreference } from '../../modules/stars/actions'
 import PopupContainer from '../popup-container/component'
 import Popup from '../popup/component'
 import './styles.css';
@@ -51,7 +51,6 @@ const mapStateToProps = ({ stars: { rating, isFeedbackClosed, submitting } }) =>
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  ping,
   fetchFeedbackRating,
   fetchClosedPreference,
   submitFeedbackRating,

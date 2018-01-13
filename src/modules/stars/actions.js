@@ -19,9 +19,6 @@ const receiveClosedPreference = ({ closed: isFeedbackClosed }) => ({
   isFeedbackClosed
 })
 
-export function ping() {
-  return () => console.log('Ping...')
-}
 
 export function fetchFeedbackRating() {
   return dispatch => Api.fetchFeedbackRating().then(({ ok, payload, statusCode }) => {
