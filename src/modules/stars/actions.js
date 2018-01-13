@@ -50,9 +50,9 @@ export function submitFeedbackRating(rating) {
   return dispatch => {
 
     dispatch(receiveSubmitting(true))
-    
+
     Api.submitFeedbackRating({ rating }).then(({ ok, statusCode }) => {
-  
+
       if (ok) {
         dispatch(receiveFeedbackRating({ rating }))
       } else {
@@ -61,6 +61,22 @@ export function submitFeedbackRating(rating) {
 
       dispatch(receiveSubmitting(false))
 
+    })
+  }
+}
+
+export function submitClosedPreference() {
+  return dispatch => {
+    dispatch(receiveSubmitting(true))
+
+    Api.submitClosedPreference({ closed: true }).then(({ ok, statusCode }) => {
+      if (ok) {
+        dispatch(receiveClosedPreference({ closed: true }))
+      } else {
+        console.log(statusCode) // TODO: should handle error somehow
+      }
+
+      dispatch(receiveSubmitting(false))
     })
   }
 }

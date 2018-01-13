@@ -14,7 +14,9 @@ class Popup extends React.Component {
   }
 
   onStarHover(starWeight) {
-    this.setState({ rating: starWeight })
+    if (!this.props.submitting) {
+      this.setState({ rating: starWeight })
+    }
   }
 
   onStarContainerMouseLeave() {
@@ -30,13 +32,19 @@ class Popup extends React.Component {
     }
   }
 
+  onCloseButtonClicked() {
+    if (!this.props.submitting) {
+      this.props.submitClosedPreference()
+    }
+  }
+
   render() {
     const { rating } = this.state
 
     return (
       <div className="popup">
         <h3 className="header">How likely are you to recommend <b>Hundred5</b> to a friend or colleague?
-        <img className="close-icon" src={CrossIcon} />
+        <img className="close-icon" src={CrossIcon} onClick={() => this.onCloseButtonClicked()} />
         </h3>
         <div className="popup-body">
           <div className="star-wrapper" onMouseLeave={() => this.onStarContainerMouseLeave()}>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
-import { ping, fetchFeedbackRating, fetchClosedPreference, submitFeedbackRating } from '../../modules/stars/actions'
+import { ping, fetchFeedbackRating, fetchClosedPreference, submitFeedbackRating, submitClosedPreference } from '../../modules/stars/actions'
 import PopupContainer from '../popup-container/component'
 import Popup from '../popup/component'
 import './styles.css';
@@ -22,9 +22,6 @@ class Home extends React.Component {
       ? false // In this case we didn't receive the fetches yet
       : !isFeedbackClosed && rating === -1 // -1 Rating is just a mark to infer that the user never rated
 
-
-
-
     return (<div className="App">
       <header className="App-header">
         <h1 className="App-title">Hundred5</h1>
@@ -35,6 +32,7 @@ class Home extends React.Component {
             <Popup
               submitting={submitting}
               submitFeedbackRating={starWeight => this.props.submitFeedbackRating(starWeight)}
+              submitClosedPreference={() => this.props.submitClosedPreference()}
             />
           </PopupContainer>
         }
@@ -57,6 +55,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   fetchFeedbackRating,
   fetchClosedPreference,
   submitFeedbackRating,
+  submitClosedPreference
+
 }, dispatch);
 
 export default connect(

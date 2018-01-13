@@ -1,5 +1,5 @@
 const baseUrl = 'https://api-fknaanjgow.now.sh'
-const authorizationToken = 'jon-antovskan' // I just change names to test from scratch
+const authorizationToken = 'von' // I just change names to test from scratch
 
 // Generic Response handlers
 const emptyResponse = res => res.ok ? Promise.resolve() : Promise.reject({ statusCode: res.status })
@@ -49,6 +49,19 @@ export function submitFeedbackRating(payload) {
   const url = urls.feedbackRating
   const options = {
     method: 'POST',
+    headers: bindCommonHeaders(authorizationToken),
+    body: JSON.stringify(payload)
+  }
+
+  return fetch(url, options)
+    .then(emptyResponse)
+    .then(formatSuccess, handleError)
+}
+
+export function submitClosedPreference(payload) {
+  const url = urls.closedPreference
+  const options = {
+    method: 'PUT',
     headers: bindCommonHeaders(authorizationToken),
     body: JSON.stringify(payload)
   }
