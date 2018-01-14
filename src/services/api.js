@@ -1,5 +1,5 @@
 const baseUrl = 'https://api-fknaanjgow.now.sh'
-const authorizationToken = 'antov-ccc' // I just change names to test from scratch
+const authorizationToken = 'hristijan' // I just change names to test from scratch
 
 // Generic Response handlers
 const emptyResponse = res => res.ok ? Promise.resolve() : Promise.reject({ statusCode: res.status })
